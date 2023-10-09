@@ -15,6 +15,10 @@ namespace MVC.Controllers
 
         public IActionResult Index()
         {
+            TestmvcdbContext dbContext = new TestmvcdbContext();
+
+            var usuarios = dbContext.Usuarios.Where(x => x.SPassword == "123").
+                                              Select(x => x.IdUsuarios).ToList();
             return View();
         }
 
